@@ -1,0 +1,218 @@
+{
+  "system": "OISE revised capacity-aware authority experiment",
+  "execution_date": "2026-08-09",
+  "global_seed": 20260809,
+  "python": "3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  },
+  "input_hashes": {
+    "data_raw/112cv_2025_datos_estadisticos.pdf": "838ad22d60e5dadd5e5847103ed6a78ef47d02789350227562ebc78e55c09939",
+    "data_raw/cat112_calls.csv": "3b73b534b2a446c2efccb23981c989827911051508a61871ff314d116b18f006",
+    "data_raw/cat112_incidents.csv": "50d1754d6e5487129777a272c595ed422683eb4feeefb1a520bb0273811df5b4",
+    "data_raw/jcyl_emergencias_2008_2022.csv": "3f1382272468e36a87534e123c6f30a6fd36e35fa0ba6861a39e9213b6f5a75f",
+    "data_raw/jcyl_emergencias_2023_actualidad.csv": "cd429f85f606216cbe4258e553e38e3393e6be0456c64580be7d337b3a905596"
+  },
+  "frozen_output_hashes": {
+    "data_processed/repaired_incident_dataset.csv": "6fe64c2e7ba9f797c581dbc5012537ee19b0efda4b2c802810686944c4e99282",
+    "data_processed/frozen_split_assignments.csv": "f5f89c940e085ef10e988fd7cca2ea887677600f353d809f353e6f6558ec6f9a",
+    "predictions/frozen_ai_predictions.csv": "6bf5da5ab7ae1c86fdbb3171b5bce9c2e77f00482e31eddd5df3cc3ba0b32d1e",
+    "statistics/revised_ai_evaluation.json": "2941c3e7fe42483d0e6bf4bcef0beac138bf9294d5db45a8f1dea5006116e179"
+  },
+  "benchmark_n": 1200,
+  "ai_metrics": {
+    "exact_activation_set_accuracy": {
+      "estimate": 0.7966666666666666,
+      "ci_low": 0.7741458333333333,
+      "ci_high": 0.8183333333333334,
+      "bootstrap_replications": 1000
+    },
+    "micro_precision": {
+      "estimate": 0.9575279755849441,
+      "ci_low": 0.9510180438488834,
+      "ci_high": 0.9642240938507772,
+      "bootstrap_replications": 1000
+    },
+    "micro_recall": {
+      "estimate": 0.9676175790285274,
+      "ci_low": 0.9620314035024918,
+      "ci_high": 0.9731892573866348,
+      "bootstrap_replications": 1000
+    },
+    "micro_f1": {
+      "estimate": 0.9625463377221015,
+      "ci_low": 0.9581028187883626,
+      "ci_high": 0.967011547006203,
+      "bootstrap_replications": 1000
+    },
+    "macro_precision": {
+      "estimate": 0.8183409684513997,
+      "ci_low": 0.7946756990903365,
+      "ci_high": 0.8440541187390084,
+      "bootstrap_replications": 1000
+    },
+    "macro_recall": {
+      "estimate": 0.8527299859550561,
+      "ci_low": 0.8167613603226558,
+      "ci_high": 0.8887070803903917,
+      "bootstrap_replications": 1000
+    },
+    "macro_f1": {
+      "estimate": 0.8318188876835064,
+      "ci_low": 0.8031555550282831,
+      "ci_high": 0.8573003156421144,
+      "bootstrap_replications": 1000
+    },
+    "confidence_brier": {
+      "estimate": 0.13200782446478845,
+      "ci_low": 0.11920042408359784,
+      "ci_high": 0.1444529684773705,
+      "bootstrap_replications": 1000
+    },
+    "confidence_ece_10": {
+      "estimate": 0.05096260533867506,
+      "ci_low": 0.03512254076575958,
+      "ci_high": 0.07389623571780748,
+      "bootstrap_replications": 1000
+    },
+    "confidence_log_loss": {
+      "estimate": 0.4186645647387479,
+      "ci_low": 0.3850502324062565,
+      "ci_high": 0.45274525053730663,
+      "bootstrap_replications": 1000
+    },
+    "n_training": 8276,
+    "n_validation": 687,
+    "n_test": 1200,
+    "n_test_reserve": 29,
+    "underdispatch_rate": 0.09833333333333333,
+    "overdispatch_rate": 0.12,
+    "incident_type_accuracy": 0.9225,
+    "mean_row_f1": 0.9596468253968254,
+    "mean_confidence": 0.8190228083719163,
+    "service_thresholds": {
+      "medical": 0.1,
+      "police_security": 0.1,
+      "fire_rescue": 0.5000000000000001,
+      "traffic_road": 0.25000000000000006,
+      "civil_environment": 0.5000000000000001
+    },
+    "fact_thresholds": {
+      "injury": 0.45000000000000007,
+      "unconscious": 0.5500000000000002,
+      "trapped": 0.5500000000000002,
+      "fire_smoke": 0.45000000000000007,
+      "hazardous_leak": 0.15000000000000002,
+      "violence_weapon": 0.45000000000000007,
+      "water_drowning": 0.6000000000000002,
+      "missing_person": 0.1,
+      "multiple_people": 0.5000000000000001
+    }
+  },
+  "audit_summary": {
+    "leakage": {
+      "eligible_cases": 10202,
+      "cases_modified": 10202,
+      "cases_modified_percent": 100.0,
+      "cases_with_service_entities_redacted": 1003,
+      "service_entities_redacted_total": 1178,
+      "characters_removed_total": 5137403,
+      "cases_with_postdecision_preamble_removed": 84,
+      "original_downstream_matches": 32827,
+      "remaining_downstream_matches": 0,
+      "remaining_downstream_case_count": 0,
+      "title_used_by_model": false,
+      "observed_reference_activation_used_as_feature": false
+    },
+    "duplicates": {
+      "eligible_before_duplicate_audit": 10202,
+      "exact_duplicate_narratives_removed": 10,
+      "near_duplicate_same_incident_removed": 0,
+      "cross_period_near_duplicates_removed": 0,
+      "eligible_after_duplicate_audit": 10192,
+      "remaining_duplicate_seed_ids": 0,
+      "near_duplicate_similarity_threshold": 0.94,
+      "same_incident_max_day_gap": 14,
+      "cross_period_contamination_threshold": 0.95
+    },
+    "weak_labels": [
+      {
+        "label": "injury",
+        "positive_original_old_rule": 7990,
+        "positive_predispatch_old_rule": 6843,
+        "positive_predispatch_corrected_rule": 6835,
+        "changed_due_predispatch_redaction": 1147,
+        "changed_due_rule_correction": 8
+      },
+      {
+        "label": "unconscious",
+        "positive_original_old_rule": 1682,
+        "positive_predispatch_old_rule": 1643,
+        "positive_predispatch_corrected_rule": 1533,
+        "changed_due_predispatch_redaction": 39,
+        "changed_due_rule_correction": 110
+      },
+      {
+        "label": "trapped",
+        "positive_original_old_rule": 3453,
+        "positive_predispatch_old_rule": 3301,
+        "positive_predispatch_corrected_rule": 3300,
+        "changed_due_predispatch_redaction": 152,
+        "changed_due_rule_correction": 1
+      },
+      {
+        "label": "fire_smoke",
+        "positive_original_old_rule": 3220,
+        "positive_predispatch_old_rule": 1136,
+        "positive_predispatch_corrected_rule": 1002,
+        "changed_due_predispatch_redaction": 2084,
+        "changed_due_rule_correction": 176
+      },
+      {
+        "label": "hazardous_leak",
+        "positive_original_old_rule": 899,
+        "positive_predispatch_old_rule": 340,
+        "positive_predispatch_corrected_rule": 22,
+        "changed_due_predispatch_redaction": 559,
+        "changed_due_rule_correction": 318
+      },
+      {
+        "label": "violence_weapon",
+        "positive_original_old_rule": 492,
+        "positive_predispatch_old_rule": 473,
+        "positive_predispatch_corrected_rule": 449,
+        "changed_due_predispatch_redaction": 19,
+        "changed_due_rule_correction": 24
+      },
+      {
+        "label": "water_drowning",
+        "positive_original_old_rule": 8135,
+        "positive_predispatch_old_rule": 3236,
+        "positive_predispatch_corrected_rule": 128,
+        "changed_due_predispatch_redaction": 4899,
+        "changed_due_rule_correction": 3124
+      },
+      {
+        "label": "missing_person",
+        "positive_original_old_rule": 33,
+        "positive_predispatch_old_rule": 14,
+        "positive_predispatch_corrected_rule": 14,
+        "changed_due_predispatch_redaction": 19,
+        "changed_due_rule_correction": 0
+      },
+      {
+        "label": "multiple_people",
+        "positive_original_old_rule": 3695,
+        "positive_predispatch_old_rule": 2707,
+        "positive_predispatch_corrected_rule": 2707,
+        "changed_due_predispatch_redaction": 988,
+        "changed_due_rule_correction": 0
+      }
+    ]
+  },
+  "regime_invariance_rule": "Every authority regime must reuse this exact frozen prediction file and global seed schedule."
+}

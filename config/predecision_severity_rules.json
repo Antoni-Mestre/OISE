@@ -1,0 +1,11 @@
+{
+  "input": "predispatch_text only",
+  "target_activation_features_used": false,
+  "ai_correctness_used": false,
+  "downstream_intervention_used": false,
+  "rules": {
+    "S2": "\\b(?:fallecid[oa]s?|muert[oa]s?|sin vida|inconsciente|no respira|parada card\\w*|atrapad[oa]s?|ahogad[oa]s?|ahogamiento|explosi[o\u00f3]n|arma|apu\u00f1al\\w*|disparo|herid[oa] grave|heridas graves|varias personas|m[u\u00fa]ltiples v[i\u00ed]ctimas)\\b",
+    "S0": "\\b(?:obst[a\u00e1]culo|animal suelto|rama ca[i\u00ed]da|se\u00f1al ca[i\u00ed]da|incidencia de tr[a\u00e1]fico|sin heridos|da\u00f1os materiales|falsa alarma|sin riesgo)\\b",
+    "default": "S1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "global_seed": 20260809,
+  "split": "train <=2022; validation 2023; stratified held-out test n=1200 from 2024-2025 after duplicate/contamination removal",
+  "representation": "predispatch narrative only; title excluded; service entities redacted",
+  "word_tfidf": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.98,
+    "max_features": 30000,
+    "sublinear_tf": true
+  },
+  "char_tfidf": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "min_df": 3,
+    "max_features": 25000,
+    "sublinear_tf": true
+  },
+  "classifier": {
+    "type": "one-vs-rest logistic regression",
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "C": 2.0,
+    "max_iter": 600
+  },
+  "threshold_selection": "validation-set per-service F1 over 0.10..0.80 in 0.05 steps",
+  "confidence": "isotonic calibration of mean service margin to exact-set correctness on 2023 validation set"
+}

@@ -1,0 +1,61 @@
+{
+  "execution_date": "2026-08-09",
+  "global_seed": 20260809,
+  "main_regimes": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "priority_control_regime": "RP",
+  "workload_grid": [
+    0.5,
+    0.75,
+    1.0,
+    1.1,
+    1.2,
+    1.25,
+    1.3,
+    1.35,
+    1.4,
+    1.5,
+    1.75,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "main_replications": 100,
+  "main_extension_replications": 400,
+  "sensitivity_replications": 60,
+  "primary_robustness_replications": 100,
+  "ablation_replications": 100,
+  "failure_log_replications": 20,
+  "human_review_parameters": {
+    "detection_probability": 0.85,
+    "review_seconds": 120.0,
+    "review_time_cv": 0.35,
+    "review_time_scale": 1.0,
+    "incorrect_override_probability": 0.01,
+    "default_acceptance_effect": 0.25,
+    "fatigue_sensitivity": 0.15,
+    "staff_count": 5,
+    "staffing_factor": 1.0,
+    "shift_hours": 8.0,
+    "reference_arrivals_per_hour": 80.0,
+    "explanation_time_multiplier": 1.0
+  },
+  "explanation_default": "E2",
+  "r3_implementation_preserved": "delegates only S0, high-confidence, unambiguous cases",
+  "hchac_definition": "S2 or protected fire/rescue case completed within decision/review window",
+  "rho_h_definition": "demanded human review seconds divided by effective reviewer count times shift seconds",
+  "frozen_benchmark_rows": 1200,
+  "software": {
+    "python": "3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0"
+  }
+}
